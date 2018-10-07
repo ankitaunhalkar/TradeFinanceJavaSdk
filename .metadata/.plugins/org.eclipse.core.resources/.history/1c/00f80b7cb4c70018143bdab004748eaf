@@ -1,0 +1,28 @@
+package com.bridgeit.tradefinance.trade.controller;
+
+import javax.servlet.http.HttpServletRequest;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import com.bridgeit.tradefinance.trade.model.CreateContractDto;
+import com.bridgeit.tradefinance.trade.model.ResponseContractDto;
+import com.bridgeit.tradefinance.trade.service.ITradeService;
+
+@RestController
+public class TradeController {
+
+	@Autowired
+	ITradeService tradeService;
+	
+	@RequestMapping()
+	ResponseEntity<?> createContract(@RequestBody CreateContractDto contract, HttpServletRequest request){
+		
+		String token = request.getHeader("Authorization");
+		ResponseContractDto response = tradeService.createcontractDto(contract, token);
+		return new ResponseEntity<>(response,HttpStatus.ACCEPTED);
+		
+	}
+}

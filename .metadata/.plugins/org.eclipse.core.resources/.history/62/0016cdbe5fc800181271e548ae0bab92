@@ -1,0 +1,17 @@
+package com.bridgeit.tradefinance.trade.service;
+
+import org.hyperledger.fabric.sdk.Channel;
+import org.hyperledger.fabric.sdk.HFClient;
+import org.hyperledger.fabric.sdk.exception.InvalidArgumentException;
+import org.hyperledger.fabric_ca.sdk.exception.EnrollmentException;
+
+import com.bridgeit.tradefinance.trade.model.AppUser;
+
+public interface IHfcaService {
+	public AppUser getAdmin() throws EnrollmentException, InvalidArgumentException, Exception;
+	public AppUser getUser(AppUser admin) throws Exception;
+	public HFClient getHfClient(AppUser admin);
+	public Channel getChannel(HFClient client);
+	public void queryBlockChain(HFClient client);
+	public void invokeBlockChain(HFClient client);
+}

@@ -1,0 +1,25 @@
+package com.bridgeit.tradefinance.trade.model;
+
+public class ResponseContractDto {
+	private String contract_Description;
+	
+	private double contract_amount;
+	
+	private String contract_importer;
+	
+	private String contract_exporter;
+
+	private String contract_importerbank;
+	
+	private String contract_insurance;
+	
+	private String contract_custom;
+	
+	private String contract_loadingport;
+	
+	private String contract_entryport;
+	
+	private String billofLading;
+	
+	private String letterofCredit;
+}

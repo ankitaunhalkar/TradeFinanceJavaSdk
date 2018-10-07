@@ -1,0 +1,18 @@
+package com.bridgeit.tradefinance.trade.controller;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.bridgeit.tradefinance.trade.model.Contract;
+import com.bridgeit.tradefinance.trade.model.CreateContractDto;
+
+@RestController
+public class TradeController {
+
+	ResponseEntity<?> createContract(@RequestBody CreateContractDto contract){
+		
+		return null;
+		
+	}
+}

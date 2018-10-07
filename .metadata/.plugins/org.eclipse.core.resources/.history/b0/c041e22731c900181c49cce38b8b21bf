@@ -1,0 +1,23 @@
+package com.bridgeit.tradefinance.trade.service;
+
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeoutException;
+
+import org.hyperledger.fabric.sdk.Channel;
+import org.hyperledger.fabric.sdk.HFClient;
+import org.hyperledger.fabric.sdk.exception.InvalidArgumentException;
+import org.hyperledger.fabric.sdk.exception.ProposalException;
+import org.hyperledger.fabric_ca.sdk.exception.EnrollmentException;
+
+import com.bridgeit.tradefinance.trade.model.AppUser;
+
+public interface IHfcaService {
+	AppUser getAdmin() throws EnrollmentException, InvalidArgumentException, Exception;
+	AppUser getUser(AppUser admin) throws Exception;
+	HFClient getHfClient(AppUser admin) throws EnrollmentException, InvalidArgumentException, Exception;
+	Channel getChannel(HFClient client) throws EnrollmentException, Exception;
+	boolean invokeBlockChain(HFClient client, String function, String[] args, Channel channel)
+			throws ProposalException, InvalidArgumentException, InterruptedException, ExecutionException, TimeoutException;
+	void queryBlockChain(String function, String[] args, Channel channel)
+			throws ProposalException, InvalidArgumentException;
+}

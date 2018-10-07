@@ -1,0 +1,17 @@
+package com.bridgeit.tradefinance.user.service;
+
+import org.hyperledger.fabric.sdk.exception.InvalidArgumentException;
+import org.hyperledger.fabric_ca.sdk.exception.EnrollmentException;
+
+import com.bridgeit.tradefinance.user.model.LoginDto;
+import com.bridgeit.tradefinance.user.model.RegisterDto;
+import com.bridgeit.tradefinance.util.Mail;
+
+public interface IUserService {
+
+	long register(RegisterDto user, String url) throws EnrollmentException, InvalidArgumentException, Exception;
+	void mailSender(Mail mailObj);
+	boolean verify(String token);
+	LoginDto login(LoginDto user);
+
+}

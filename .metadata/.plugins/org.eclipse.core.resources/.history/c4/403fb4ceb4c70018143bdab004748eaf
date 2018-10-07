@@ -1,0 +1,45 @@
+package com.bridgeit.tradefinance.trade.dao;
+
+import org.hibernate.Criteria;
+import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.bridgeit.tradefinance.trade.model.Contract;
+
+@Repository
+public class TradeDaoImpl implements ITradeDao{
+
+	@Autowired
+	SessionFactory sessionFcatory;
+
+	@Override
+	public long save(Contract contract) {
+		
+		long status = (Long) sessionFcatory.openSession().save(contract);
+		
+		return status;
+	}
+	
+	@Override
+	public boolean update(Contract contract) {
+			
+		sessionFcatory.getCurrentSession().update(contract);
+		
+		return true;
+	}
+	
+	@SuppressWarnings("deprecation")
+	@Override
+	public Contract getById(long id) {
+		
+		Criteria crt = sessionFcatory.getCurrentSession().createCriteria(Contract.class);
+		
+		crt.add(Restrictions.eq("id", id));
+		
+		Contract user = (Contract) crt.uniqueResult();
+		
+		return (user != null) ? user : null;
+	}
+}

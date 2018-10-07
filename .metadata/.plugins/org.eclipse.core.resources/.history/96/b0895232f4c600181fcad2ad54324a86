@@ -1,0 +1,31 @@
+package com.bridgeit.tradefinance.util;
+
+import java.io.Serializable;
+
+import javax.jms.JMSException;
+import javax.jms.Message;
+import javax.jms.ObjectMessage;
+import javax.jms.Session;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jms.core.JmsTemplate;
+import org.springframework.jms.core.MessageCreator;
+import org.springframework.stereotype.Service;
+
+@Service
+public class MailProducer {
+	@Autowired
+	JmsTemplate jmsTemplate;
+	
+	public void sendMail( final Mail email ) {
+
+		jmsTemplate.send(new MessageCreator() {
+			
+			@Override
+			public Message createMessage(Session session) throws JMSException {
+				ObjectMessage objectMessage = session.createObjectMessage((Serializable) email);
+				return objectMessage;
+			}
+		});
+	}
+}

@@ -1,0 +1,5 @@
+package com.bridgeit.tradefinance.trade.service;
+
+public interface IHfcaService {
+
+}

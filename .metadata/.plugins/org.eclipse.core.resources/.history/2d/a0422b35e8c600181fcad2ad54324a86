@@ -1,0 +1,5 @@
+package com.bridgeit.tradefinance;
+
+public class GlobalException {
+
+}

@@ -1,0 +1,5 @@
+package com.bridgeit.tradefinance.user.dao;
+
+public class UserDaoImpl {
+
+}

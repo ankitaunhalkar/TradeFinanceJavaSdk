@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+/home/bridgeit/eclipse-workspace/tradefinance/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+2747404559.index
+957435704.index
+3844555276.index
+914772698.index
+3553969905.index
+1956707983.index

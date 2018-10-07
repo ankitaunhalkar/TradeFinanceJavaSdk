@@ -1,0 +1,7 @@
+package com.bridgeit.tradefinance.trade.service;
+
+import com.bridgeit.tradefinance.trade.model.CreateContractDto;
+
+public interface ITradeService {
+	CreateContractDto createcontractDto(CreateContractDto contract, String token);
+}

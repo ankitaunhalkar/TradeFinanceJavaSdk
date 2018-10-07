@@ -1,0 +1,172 @@
+package com.bridgeit.tradefinance.trade.service;
+
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeoutException;
+
+import javax.transaction.Transactional;
+
+import org.hyperledger.fabric.sdk.Channel;
+import org.hyperledger.fabric.sdk.HFClient;
+import org.hyperledger.fabric.sdk.exception.InvalidArgumentException;
+import org.hyperledger.fabric.sdk.exception.ProposalException;
+import org.hyperledger.fabric_ca.sdk.exception.EnrollmentException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.bridgeit.tradefinance.Exception.UserNotFoundException;
+import com.bridgeit.tradefinance.trade.dao.ITradeDao;
+import com.bridgeit.tradefinance.trade.model.AppUser;
+import com.bridgeit.tradefinance.trade.model.Contract;
+import com.bridgeit.tradefinance.trade.model.CreateContractDto;
+import com.bridgeit.tradefinance.trade.model.ResponseContractDto;
+import com.bridgeit.tradefinance.user.dao.IUserDao;
+import com.bridgeit.tradefinance.user.model.User;
+import com.bridgeit.tradefinance.util.TokenUtil;
+
+@Service
+public class TradeServiceImpl implements ITradeService {
+
+	@Autowired
+	ITradeDao tradeDao;
+
+	@Autowired
+	IUserDao userDao;
+
+	@Autowired
+	IHfcaService hfservice;
+
+	@Override
+	@Transactional
+	public ResponseContractDto createcontract(CreateContractDto contract, String token)
+			throws EnrollmentException, InvalidArgumentException, Exception {
+
+		ResponseContractDto responsecontract = null;
+
+		long userid = TokenUtil.parseJWT(token);
+
+		User user = userDao.getById(userid);
+
+		if (user != null) {
+			Contract createcontract = new Contract(contract);
+			createcontract.setUser(user);
+			boolean status = invokeChaincode(createcontract, "createContractCC");
+
+			if (status) {
+				String savedId = tradeDao.save(createcontract);
+				if (savedId != null) {
+					Contract contractcreated = tradeDao.getById(savedId);
+
+					if (contractcreated != null) {
+						boolean customstatus = invokeChaincode(contractcreated, "customAcceptanceCC");
+
+						if (customstatus) {
+							contractcreated.setContract_customstatus(true);
+							tradeDao.update(contractcreated);
+							Contract customupdatedcontract = tradeDao.getById(savedId);
+							boolean insurancestatus = invokeChaincode(customupdatedcontract, "insuranceAcceptanceCC");
+
+							if (insurancestatus) {
+								customupdatedcontract.setContract_insurancestatus(true);
+								tradeDao.update(customupdatedcontract);
+								Contract insuranceupdatedcontract = tradeDao.getById(savedId);
+								boolean ibstatus = invokeChaincode(insuranceupdatedcontract,
+										"importerBankAcceptanceCC");
+
+								if (ibstatus) {
+									insuranceupdatedcontract.setContract_importerbankstatus(true);
+									tradeDao.update(insuranceupdatedcontract);
+									Contract ibupdatedcontract = tradeDao.getById(savedId);
+									boolean transaction = invokeChaincode(ibupdatedcontract, "transferamountCC");
+
+									if (transaction) {
+										responsecontract = new ResponseContractDto(ibupdatedcontract);
+										return responsecontract;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		} else
+			throw new UserNotFoundException("User Not Found");
+
+		return responsecontract;
+	}
+
+	public boolean invokeChaincode(Contract contract, String function)
+			throws EnrollmentException, InvalidArgumentException, Exception {
+
+		if (function == "createContractCC") {
+			return createContractCC(contract);
+		} else if (function == "customAcceptanceCC") {
+			return customAcceptanceCC(contract);
+		} else if (function == "insuranceAcceptanceCC") {
+			return insuranceAcceptanceCC(contract);
+		} else if (function == "importerBankAcceptanceCC") {
+			return importerBankAcceptanceCC(contract);
+		} else if (function == "transferamountCC") {
+			return transferamountCC(contract);
+		}
+
+		return false;
+	}
+
+	private boolean customAcceptanceCC(Contract contract) throws ProposalException, InvalidArgumentException,
+			InterruptedException, ExecutionException, TimeoutException {
+
+		String[] args = { contract.getContract_id() };
+
+		boolean status = hfservice.invokeBlockChain("customAcceptance", args);
+
+		return status;
+	}
+
+	private boolean insuranceAcceptanceCC(Contract contract) throws ProposalException, InvalidArgumentException,
+			InterruptedException, ExecutionException, TimeoutException {
+
+		String[] args = { contract.getContract_id() };
+
+		boolean status = hfservice.invokeBlockChain("insuranceAcceptance", args);
+
+		return status;
+	}
+
+	private boolean importerBankAcceptanceCC(Contract contract) throws ProposalException, InvalidArgumentException,
+			InterruptedException, ExecutionException, TimeoutException {
+
+		String[] args = { contract.getContract_id() };
+
+		boolean status = hfservice.invokeBlockChain("importerBankAcceptance", args);
+
+		return status;
+	}
+
+	private boolean transferamountCC(Contract contract) throws ProposalException, InvalidArgumentException,
+			InterruptedException, ExecutionException, TimeoutException {
+
+		String[] args = { contract.getContract_id() };
+
+		boolean status = hfservice.invokeBlockChain("transferamount", args);
+		return status;
+	}
+
+	public boolean createContractCC(Contract contract) throws ProposalException, InvalidArgumentException,
+			InterruptedException, ExecutionException, TimeoutException {
+
+		String[] args = { contract.getContract_id(), contract.getContract_Description(),
+				contract.getContract_amount() + "", contract.getContract_importer(), contract.getContract_exporter(),
+				contract.getContract_importerbank(), contract.getContract_insurance(), contract.getContract_custom(),
+				contract.getContract_loadingport(), contract.getContract_entryport(), "false", "false", "false",
+				contract.getBillofLading(), contract.getLetterofCredit() };
+
+		boolean status = hfservice.invokeBlockChain("createContract", args);
+
+		String[] args1 = { contract.getContract_id() };
+
+		hfservice.queryBlockChain("getContract", args1);
+
+		System.out.println(status);
+		return status;
+	}
+}

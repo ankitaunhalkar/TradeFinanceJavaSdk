@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;contractcreated&apos; in &apos;com.bridgeit.tradefinance.trade.service.TradeServiceImpl.updateContract(...)&apos; to &apos;contract&apos;&#x0A;- Original project: &apos;TradeFinance&apos;&#x0A;- Original element: &apos;com.bridgeit.tradefinance.trade.service.TradeServiceImpl.updateContract(String).contractcreated&apos;&#x0A;- Renamed element: &apos;contractcreated&apos;&#x0A;- Update references to refactored element" description="Rename local variable &apos;contractcreated&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src\/main\/java&lt;com.bridgeit.tradefinance.trade.service{TradeServiceImpl.java[TradeServiceImpl~updateContract~QString;@contractcreated!3340!3395!3349!3363!QContract;!0!false" name="contract" references="true" stamp="1538895898013" version="1.0"/>
+</session>

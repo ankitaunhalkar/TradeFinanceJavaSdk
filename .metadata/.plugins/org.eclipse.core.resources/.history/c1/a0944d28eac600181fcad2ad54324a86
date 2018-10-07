@@ -1,0 +1,17 @@
+package com.bridgeit.tradefinance.user.model;
+
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Size;
+
+import com.sun.istack.NotNull;
+
+public class LoginDto {
+
+	@Email
+	@NotNull
+	private String email;
+	
+	@Size(min=3)
+	private String password;
+	
+}

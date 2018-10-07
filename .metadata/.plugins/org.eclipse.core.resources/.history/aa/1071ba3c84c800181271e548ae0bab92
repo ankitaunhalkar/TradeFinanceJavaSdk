@@ -1,0 +1,189 @@
+package com.bridgeit.tradefinance.user.service;
+
+import javax.mail.Message;
+import javax.mail.internet.MimeMessage;
+import javax.transaction.Transactional;
+
+import org.hyperledger.fabric.sdk.Channel;
+import org.hyperledger.fabric.sdk.HFClient;
+import org.hyperledger.fabric.sdk.exception.InvalidArgumentException;
+import org.hyperledger.fabric_ca.sdk.exception.EnrollmentException;
+import org.mindrot.jbcrypt.BCrypt;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessagePreparator;
+import org.springframework.stereotype.Service;
+
+import com.bridgeit.tradefinance.Exception.DuplicateEmailException;
+import com.bridgeit.tradefinance.Exception.UserNotFoundException;
+import com.bridgeit.tradefinance.trade.model.AppUser;
+import com.bridgeit.tradefinance.trade.model.Contract;
+import com.bridgeit.tradefinance.trade.service.IHfcaService;
+import com.bridgeit.tradefinance.user.dao.IUserDao;
+import com.bridgeit.tradefinance.user.model.LoginDto;
+import com.bridgeit.tradefinance.user.model.RegisterDto;
+import com.bridgeit.tradefinance.user.model.User;
+import com.bridgeit.tradefinance.util.IRedisTokenDao;
+import com.bridgeit.tradefinance.util.Mail;
+import com.bridgeit.tradefinance.util.MailProducer;
+import com.bridgeit.tradefinance.util.TokenUtil;
+
+@Service
+public class UserServiceImpl implements IUserService {
+
+	@Autowired
+	IUserDao userDao;
+
+	@Autowired
+	IRedisTokenDao tokenDao;
+	
+	@Autowired
+	MailProducer mailProducer;
+
+	@Autowired
+	JavaMailSender mailSender;
+
+
+	@Autowired
+	IHfcaService hfservice;
+	
+	@Override
+	@Transactional
+	public long register(RegisterDto registrationUser, String url) throws EnrollmentException, InvalidArgumentException, Exception {
+
+		long registeredId = 0;
+
+		// checking if mail id is already exists or not
+		User registerDaoStatus = userDao.getByEmail(registrationUser.getEmail());
+
+		if (registerDaoStatus != null) {
+
+			throw new DuplicateEmailException("Email Already Exists");
+
+		}
+
+		// setting into user model
+		User user = new User(registrationUser);
+
+		// password encrypting
+		user.setPassword(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt()));
+
+		boolean status = invokeChaincode(user);
+		
+		if(status) {
+		// if not existing then save
+		registeredId = userDao.save(user);
+
+		// token generating
+		String token = TokenUtil.createJWT(String.valueOf(registeredId), registrationUser.getOrg_name(), "Verification",
+				24 * 3600 * 1000);
+
+		// setting to email model
+		Mail mail = new Mail();
+
+		mail.setName(registrationUser.getOrg_name());
+		mail.setTo(registrationUser.getEmail());
+		mail.setSubject("Fundoo Verfication");
+		mail.setBody(url + token);
+
+		// mail sending
+		mailProducer.sendMail(mail);
+
+		// setting into redis cache
+		tokenDao.setToken(String.valueOf(registeredId), token);
+		}
+		return registeredId;
+	}
+	
+	public boolean invokeChaincode(User user) throws EnrollmentException, InvalidArgumentException, Exception {
+		AppUser admin = hfservice.getAdmin();
+		HFClient client = hfservice.getHfClient(admin);
+		Channel channel = hfservice.getChannel(client);
+		
+		String[] args = {user.getOrg_name(),String.valueOf(user.getId()), String.valueOf(10000), user.getBankname()};
+		
+		boolean status = hfservice.invokeBlockChain(client, "createAccount", args, channel);
+
+		return status;
+	}
+
+	@Override
+	@Transactional
+	public boolean verify(String token) {
+
+		boolean status = false;
+
+		// Decoding token and validating
+		long id = TokenUtil.parseJWT(token);
+
+		// getting token from redis
+		String redisToken = tokenDao.getToken(String.valueOf(id));
+
+		if (token.equals(redisToken)) {
+
+			// Fetching user by id
+			User user = userDao.getById(id);
+
+			// Setting isVerified value to true
+			user.setVerified(true);
+
+			// Updating isVerified value in db
+			userDao.update(user);
+
+			// Deleting token from redis
+			tokenDao.deleteToken(String.valueOf(id));
+
+			return status = true;
+		}
+
+		return status;
+	}
+
+	@Override
+	@Transactional
+	public LoginDto login(LoginDto loginUser) throws UserNotFoundException {
+
+		LoginDto userInfo = null;
+		
+		String token = null;
+
+		// checking if mail id exists or not
+		User loggedUser = userDao.getByEmail(loginUser.getEmail());
+
+		// if exists then matching the password
+		if ((loggedUser != null) && (loggedUser.isVerified() == true)
+				&& (BCrypt.checkpw(loginUser.getPassword(), loggedUser.getPassword()))) {
+
+			token = TokenUtil.createJWT(String.valueOf(loggedUser.getId()), loggedUser.getOrg_name(), "Login",
+					24 * 3600 * 1000);
+			userInfo = new LoginDto();
+			userInfo.setEmail(loggedUser.getEmail());
+			userInfo.setToken(token);
+			userInfo.setOrgname(loggedUser.getOrg_name());
+
+		} else
+
+			throw new UserNotFoundException("User Not Found");
+
+		return userInfo;
+	}
+	
+	@Override
+	@Transactional
+	public void mailSender(final Mail mailObj) {
+
+		final MimeMessagePreparator message = new MimeMessagePreparator() {
+
+			@Override
+			public void prepare(MimeMessage mimeMessage) throws Exception {
+
+				mimeMessage.setRecipients(Message.RecipientType.TO, mailObj.getTo());
+				mimeMessage.setSubject(mailObj.getSubject());
+				mimeMessage.setText("Dear " + mailObj.getName() + ",\n" + mailObj.getBody());
+
+			}
+		};
+
+		mailSender.send(message);
+	}
+}

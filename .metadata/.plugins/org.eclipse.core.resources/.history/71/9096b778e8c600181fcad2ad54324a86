@@ -1,0 +1,12 @@
+package com.bridgeit.tradefinance.Exception;
+
+public class DuplicateEmailException {
+	private static final long serialVersionUID = 1L;
+
+	public DuplicateEmailException(String message) {
+		
+		super(message);
+		
+	}
+
+}

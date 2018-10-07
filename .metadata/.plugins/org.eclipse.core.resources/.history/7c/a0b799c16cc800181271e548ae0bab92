@@ -1,0 +1,13 @@
+package com.bridgeit.tradefinance.trade.dao;
+
+import com.bridgeit.tradefinance.trade.model.Contract;
+
+public interface ITradeDao {
+	
+	public long save(Contract contract);
+
+	public boolean update(Contract contract);
+
+	public Contract getById(long id);
+	
+}

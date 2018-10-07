@@ -1,0 +1,186 @@
+
+Oct 04, 2018 09:58:42.36 NEW SESSION
+Oct 04, 2018 09:58:42.36 [1:1:1004/095842.367339:ERROR:webthread_impl_for_utility_thread.cc(19)] Not implemented reached in virtual blink::ThreadScheduler *blink::scheduler::WebThreadImplForUtilityThread::Scheduler() const
+Oct 04, 2018 09:59:31.76 [1:1:1004/095931.732475:ERROR:webthread_impl_for_utility_thread.cc(19)] Not implemented reached in virtual blink::ThreadScheduler *blink::scheduler::WebThreadImplForUtilityThread::Scheduler() const
+Oct 04, 2018 10:01:04.92 [1:1:1004/100104.927279:ERROR:webthread_impl_for_utility_thread.cc(19)] Not implemented reached in virtual blink::ThreadScheduler *blink::scheduler::WebThreadImplForUtilityThread::Scheduler() const
+Oct 04, 2018 10:20:12.51 Created new window in existing browser session.
+Oct 04, 2018 10:22:36.51 Created new window in existing browser session.
+Oct 04, 2018 10:23:52.35 Created new window in existing browser session.
+Oct 04, 2018 11:13:13.13 Created new window in existing browser session.
+Oct 04, 2018 11:24:36.81 Created new window in existing browser session.
+Oct 04, 2018 11:26:22.16 Created new window in existing browser session.
+Oct 04, 2018 11:28:59.06 Created new window in existing browser session.
+Oct 04, 2018 11:30:42.22 Created new window in existing browser session.
+Oct 04, 2018 11:47:46.16 Created new window in existing browser session.
+Oct 04, 2018 15:01:04.64 [1:1:1004/150104.641331:ERROR:webthread_impl_for_utility_thread.cc(19)] Not implemented reached in virtual blink::ThreadScheduler *blink::scheduler::WebThreadImplForUtilityThread::Scheduler() const
+Oct 04, 2018 16:54:43.24 Created new window in existing browser session.
+Oct 04, 2018 16:56:18.94 Created new window in existing browser session.
+Oct 04, 2018 16:57:59.03 Created new window in existing browser session.
+Oct 04, 2018 17:06:39.03 [8985:9007:1004/170639.034708:ERROR:ssl_client_socket_impl.cc(1050)] handshake failed; returned -1, SSL error code 1, net_error -101
+Oct 04, 2018 17:24:39.22 Created new window in existing browser session.
+Oct 04, 2018 17:49:14.07 Created new window in existing browser session.
+Oct 04, 2018 18:30:50.97 Created new window in existing browser session.
+Oct 04, 2018 18:33:22.20 Created new window in existing browser session.
+Oct 04, 2018 18:55:49.99 Created new window in existing browser session.
+Oct 04, 2018 18:56:44.19 Created new window in existing browser session.
+Oct 04, 2018 19:15:03.10 [9031:9031:1004/191503.108765:ERROR:gles2_cmd_decoder.cc(5680)] Error: 3 for Command kBlitFramebufferCHROMIUM
+
+Oct 05, 2018 13:04:21.92 NEW SESSION
+Oct 05, 2018 13:04:21.92 Created new window in existing browser session.
+Oct 05, 2018 13:06:48.81 Created new window in existing browser session.
+Oct 05, 2018 13:09:05.42 Created new window in existing browser session.
+Oct 05, 2018 15:34:51.39 Created new window in existing browser session.
+Oct 05, 2018 16:22:18.42 Created new window in existing browser session.
+Oct 05, 2018 16:27:49.97 Created new window in existing browser session.
+Oct 05, 2018 16:37:08.62 Created new window in existing browser session.
+Oct 05, 2018 16:41:01.20 Created new window in existing browser session.
+Oct 05, 2018 16:50:06.49 Created new window in existing browser session.
+Oct 05, 2018 16:58:15.52 Created new window in existing browser session.
+Oct 05, 2018 17:19:30.98 Created new window in existing browser session.
+Oct 05, 2018 17:22:16.36 Created new window in existing browser session.
+Oct 05, 2018 17:23:23.59 Created new window in existing browser session.
+Oct 05, 2018 17:28:15.60 Created new window in existing browser session.
+Oct 05, 2018 17:29:05.49 Created new window in existing browser session.
+Oct 05, 2018 17:31:05.02 Created new window in existing browser session.
+Oct 05, 2018 17:35:51.16 Created new window in existing browser session.
+Oct 05, 2018 17:44:46.02 Created new window in existing browser session.
+
+Oct 05, 2018 18:07:39.14 NEW SESSION
+Oct 05, 2018 18:07:39.14 Created new window in existing browser session.
+Oct 05, 2018 18:50:44.68 Created new window in existing browser session.
+Oct 05, 2018 19:06:58.36 Created new window in existing browser session.
+Oct 05, 2018 19:23:27.40 Created new window in existing browser session.
+
+Oct 06, 2018 09:29:00.42 NEW SESSION
+Oct 06, 2018 09:29:00.42 [1:1:1006/092900.396064:ERROR:webthread_impl_for_utility_thread.cc(19)] Not implemented reached in virtual blink::ThreadScheduler *blink::scheduler::WebThreadImplForUtilityThread::Scheduler() const
+Oct 06, 2018 10:04:45.20 [1:1:1006/100445.205760:ERROR:webthread_impl_for_utility_thread.cc(19)] Not implemented reached in virtual blink::ThreadScheduler *blink::scheduler::WebThreadImplForUtilityThread::Scheduler() const
+Oct 06, 2018 10:05:31.74 [1:1:1006/100531.740339:ERROR:webthread_impl_for_utility_thread.cc(19)] Not implemented reached in virtual blink::ThreadScheduler *blink::scheduler::WebThreadImplForUtilityThread::Scheduler() const
+Oct 06, 2018 10:15:51.25 [1:15:1006/101551.256116:ERROR:adm_helpers.cc(73)] Failed to query stereo recording.
+Oct 06, 2018 10:20:57.35 [8713:8713:1006/102057.349881:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://tpc.googlesyndication.com", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 10:20:58.04 [8760:8760:1006/102058.048382:ERROR:gles2_cmd_decoder_autogen.h(1606)] [.WebGL-0x344b4a461e00]GL ERROR :GL_INVALID_ENUM : glGetIntegerv: pname was GL_MAX_SAMPLES_ANGLE
+Oct 06, 2018 10:20:58.13 [8713:8713:1006/102058.139426:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://aax-fe-sin.amazon-adsystem.com", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 10:20:58.86 [8713:8713:1006/102058.860844:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://ad.doubleclick.net", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 10:20:58.86 [8713:8713:1006/102058.861164:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://ad.doubleclick.net", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 10:20:58.86 [8713:8713:1006/102058.861557:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://ad.doubleclick.net", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 10:20:59.35 [8713:8713:1006/102059.354743:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://ad.doubleclick.net", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 10:20:59.85 [8713:8713:1006/102059.855490:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://ad.doubleclick.net", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 10:21:00.35 [8713:8713:1006/102100.354987:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://ad.doubleclick.net", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 10:21:00.85 [8713:8713:1006/102100.855166:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://ad.doubleclick.net", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 10:21:01.35 [8713:8713:1006/102101.355842:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://ad.doubleclick.net", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 10:21:01.85 [8713:8713:1006/102101.855678:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://ad.doubleclick.net", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 10:21:02.35 [8713:8713:1006/102102.357585:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://ad.doubleclick.net", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 10:21:02.85 [8713:8713:1006/102102.856372:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://ad.doubleclick.net", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 10:21:03.35 [8713:8713:1006/102103.356539:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://ad.doubleclick.net", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 10:21:03.85 [8713:8713:1006/102103.856827:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://ad.doubleclick.net", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 10:21:04.35 [8713:8713:1006/102104.356997:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://ad.doubleclick.net", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 10:21:04.85 [8713:8713:1006/102104.857476:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://ad.doubleclick.net", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 10:21:05.35 [8713:8713:1006/102105.357692:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://ad.doubleclick.net", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 10:21:05.85 [8713:8713:1006/102105.857980:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://ad.doubleclick.net", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 10:21:06.35 [8713:8713:1006/102106.358220:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://ad.doubleclick.net", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 10:21:06.85 [8713:8713:1006/102106.858471:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://ad.doubleclick.net", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 10:21:07.35 [8713:8713:1006/102107.358560:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://ad.doubleclick.net", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 10:21:07.85 [8713:8713:1006/102107.858881:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://ad.doubleclick.net", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 10:21:08.35 [8713:8713:1006/102108.358672:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://ad.doubleclick.net", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 10:21:08.85 [8713:8713:1006/102108.858898:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://ad.doubleclick.net", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 10:21:09.35 [8713:8713:1006/102109.358918:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://ad.doubleclick.net", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 10:21:09.85 [8713:8713:1006/102109.859715:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://ad.doubleclick.net", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 10:21:10.36 [8713:8713:1006/102110.359794:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://ad.doubleclick.net", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 10:22:43.25 [8760:8760:1006/102243.258266:ERROR:gles2_cmd_decoder_autogen.h(1606)] [.WebGL-0x344b4a45b300]GL ERROR :GL_INVALID_ENUM : glGetIntegerv: pname was GL_MAX_SAMPLES_ANGLE
+Oct 06, 2018 10:28:54.43 [8713:8736:1006/102854.432501:ERROR:ssl_client_socket_impl.cc(1050)] handshake failed; returned -1, SSL error code 1, net_error -101
+Oct 06, 2018 12:07:04.08 Created new window in existing browser session.
+Oct 06, 2018 12:12:14.61 Created new window in existing browser session.
+Oct 06, 2018 12:19:52.47 [8760:8760:1006/121952.479450:ERROR:gles2_cmd_decoder_autogen.h(1606)] [.WebGL-0x344b4a459e00]GL ERROR :GL_INVALID_ENUM : glGetIntegerv: pname was GL_MAX_SAMPLES_ANGLE
+Oct 06, 2018 12:19:52.50 [8760:8760:1006/121952.503936:ERROR:gles2_cmd_decoder_autogen.h(1606)] [.WebGL-0x344b4a6e5700]GL ERROR :GL_INVALID_ENUM : glGetIntegerv: pname was GL_MAX_SAMPLES_ANGLE
+Oct 06, 2018 12:19:52.60 [8713:8713:1006/121952.602862:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://tpc.googlesyndication.com", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 12:19:52.66 [8713:8713:1006/121952.663921:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://tpc.googlesyndication.com", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 12:19:52.99 [1:16:1006/121952.998703:ERROR:adm_helpers.cc(73)] Failed to query stereo recording.
+Oct 06, 2018 12:19:53.96 [8713:8713:1006/121953.961864:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://tpc.googlesyndication.com", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 12:19:54.03 [8713:8713:1006/121954.034641:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://tpc.googlesyndication.com", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 12:19:54.39 [8760:8760:1006/121954.391514:ERROR:gles2_cmd_decoder_autogen.h(1606)] [.WebGL-0x344b4a62fe00]GL ERROR :GL_INVALID_ENUM : glGetIntegerv: pname was GL_MAX_SAMPLES_ANGLE
+Oct 06, 2018 12:19:54.48 [8760:8760:1006/121954.484216:ERROR:gles2_cmd_decoder_autogen.h(1606)] [.WebGL-0x344b4a754300]GL ERROR :GL_INVALID_ENUM : glGetIntegerv: pname was GL_MAX_SAMPLES_ANGLE
+Oct 06, 2018 12:20:09.88 [8713:8713:1006/122009.880329:ERROR:media_internals.cc(102)] Cannot get RenderProcessHost
+Oct 06, 2018 12:20:09.88 [8713:8713:1006/122009.880670:ERROR:media_internals.cc(102)] Cannot get RenderProcessHost
+Oct 06, 2018 12:41:42.29 Created new window in existing browser session.
+Oct 06, 2018 12:45:27.38 Created new window in existing browser session.
+Oct 06, 2018 12:49:55.90 Created new window in existing browser session.
+Oct 06, 2018 12:51:24.90 [8713:8713:1006/125124.909603:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://tpc.googlesyndication.com", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 12:51:25.13 [8713:8713:1006/125125.133289:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://tpc.googlesyndication.com", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 12:51:25.59 [8713:8713:1006/125125.596222:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://ad.doubleclick.net", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 12:51:25.73 [8760:8760:1006/125125.734942:ERROR:gles2_cmd_decoder_autogen.h(1606)] [.WebGL-0x344b4a9c2300]GL ERROR :GL_INVALID_ENUM : glGetIntegerv: pname was GL_MAX_SAMPLES_ANGLE
+Oct 06, 2018 12:51:26.14 [8713:8713:1006/125126.144976:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://ad.doubleclick.net", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 12:51:26.14 [8713:8713:1006/125126.145030:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://ad.doubleclick.net", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 12:51:26.64 [8713:8713:1006/125126.641019:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://ad.doubleclick.net", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 12:51:27.14 [8713:8713:1006/125127.141643:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://ad.doubleclick.net", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 12:51:27.64 [8713:8713:1006/125127.641499:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://ad.doubleclick.net", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 12:51:28.14 [8713:8713:1006/125128.141764:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://ad.doubleclick.net", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 12:51:28.64 [8713:8713:1006/125128.641792:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://ad.doubleclick.net", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 12:51:29.14 [8713:8713:1006/125129.141985:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://ad.doubleclick.net", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 12:51:29.64 [8713:8713:1006/125129.642396:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://ad.doubleclick.net", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 12:51:30.14 [8713:8713:1006/125130.142766:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://ad.doubleclick.net", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 12:51:30.64 [8713:8713:1006/125130.642984:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://ad.doubleclick.net", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 12:51:31.14 [8713:8713:1006/125131.143378:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://ad.doubleclick.net", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 12:51:31.64 [8713:8713:1006/125131.643399:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://ad.doubleclick.net", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 12:51:32.14 [8713:8713:1006/125132.144937:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://ad.doubleclick.net", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 12:51:32.64 [8713:8713:1006/125132.644222:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://ad.doubleclick.net", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 12:51:33.14 [8713:8713:1006/125133.144303:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://ad.doubleclick.net", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 12:51:33.64 [8713:8713:1006/125133.644222:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://ad.doubleclick.net", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 12:59:35.94 Created new window in existing browser session.
+Oct 06, 2018 13:10:06.09 Created new window in existing browser session.
+Oct 06, 2018 13:16:10.37 Created new window in existing browser session.
+Oct 06, 2018 13:31:34.07 Created new window in existing browser session.
+Oct 06, 2018 14:10:39.16 Created new window in existing browser session.
+Oct 06, 2018 14:13:53.78 Created new window in existing browser session.
+Oct 06, 2018 14:15:19.71 Created new window in existing browser session.
+Oct 06, 2018 14:17:52.67 Created new window in existing browser session.
+Oct 06, 2018 14:24:49.81 Created new window in existing browser session.
+Oct 06, 2018 14:42:30.59 [1:1:1006/144230.597778:ERROR:webthread_impl_for_utility_thread.cc(19)] Not implemented reached in virtual blink::ThreadScheduler *blink::scheduler::WebThreadImplForUtilityThread::Scheduler() const
+Oct 06, 2018 14:45:59.48 Created new window in existing browser session.
+Oct 06, 2018 14:47:25.79 Created new window in existing browser session.
+Oct 06, 2018 14:56:17.15 Created new window in existing browser session.
+Oct 06, 2018 14:57:09.44 Created new window in existing browser session.
+Oct 06, 2018 14:58:13.40 Created new window in existing browser session.
+Oct 06, 2018 15:17:41.58 Created new window in existing browser session.
+Oct 06, 2018 15:20:22.90 Created new window in existing browser session.
+Oct 06, 2018 15:22:28.73 Created new window in existing browser session.
+Oct 06, 2018 15:27:19.26 Created new window in existing browser session.
+Oct 06, 2018 15:32:10.56 Created new window in existing browser session.
+Oct 06, 2018 15:37:34.52 Created new window in existing browser session.
+Oct 06, 2018 15:51:29.41 Created new window in existing browser session.
+Oct 06, 2018 15:56:30.92 Created new window in existing browser session.
+Oct 06, 2018 16:07:31.19 [8713:8713:1006/160731.194128:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://tpc.googlesyndication.com", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 16:07:31.19 [8713:8713:1006/160731.196089:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://tpc.googlesyndication.com", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 16:17:39.87 [8713:8713:1006/161739.874365:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://tpc.googlesyndication.com", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 16:17:39.87 [8713:8713:1006/161739.874418:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://tpc.googlesyndication.com", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 16:49:50.63 Created new window in existing browser session.
+Oct 06, 2018 16:52:20.18 Created new window in existing browser session.
+Oct 06, 2018 17:00:56.79 Created new window in existing browser session.
+Oct 06, 2018 17:21:54.94 Created new window in existing browser session.
+Oct 06, 2018 17:33:16.70 Created new window in existing browser session.
+Oct 06, 2018 18:15:58.15 Created new window in existing browser session.
+Oct 06, 2018 18:31:35.57 Created new window in existing browser session.
+Oct 06, 2018 18:46:05.13 Created new window in existing browser session.
+Oct 06, 2018 18:47:15.47 Created new window in existing browser session.
+Oct 06, 2018 19:19:51.12 [8713:8713:1006/191951.025978:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://tpc.googlesyndication.com", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 19:19:51.35 [8713:8713:1006/191951.354723:ERROR:CONSOLE(303)] "Received message from untrusted domain: https://tpc.googlesyndication.com", source: chrome-extension://gibkoahgjfhphbmeiphbcnhehbfdlcgo/js/newtab.js (303)
+Oct 06, 2018 19:19:51.73 [8760:8760:1006/191951.731571:ERROR:gles2_cmd_decoder_autogen.h(1606)] [.WebGL-0x344b4a6c4700]GL ERROR :GL_INVALID_ENUM : glGetIntegerv: pname was GL_MAX_SAMPLES_ANGLE
+Oct 06, 2018 19:20:18.08 [1:15:1006/192018.072757:ERROR:adm_helpers.cc(73)] Failed to query stereo recording.
+
+Oct 07, 2018 15:15:04.41 NEW SESSION
+Oct 07, 2018 15:15:04.41 Created new window in existing browser session.
+Oct 07, 2018 15:28:14.43 Created new window in existing browser session.
+Oct 07, 2018 15:38:30.15 Created new window in existing browser session.
+Oct 07, 2018 15:43:50.56 Created new window in existing browser session.
+Oct 07, 2018 15:47:46.76 Created new window in existing browser session.
+Oct 07, 2018 15:57:02.78 Created new window in existing browser session.
+Oct 07, 2018 15:58:22.04 Created new window in existing browser session.
+Oct 07, 2018 16:04:36.08 Created new window in existing browser session.
+Oct 07, 2018 16:08:40.20 Created new window in existing browser session.
+Oct 07, 2018 16:27:57.00 Created new window in existing browser session.
+Oct 07, 2018 17:01:25.93 Created new window in existing browser session.
+Oct 07, 2018 17:04:57.26 Created new window in existing browser session.
+Oct 07, 2018 17:11:44.38 Created new window in existing browser session.
+Oct 07, 2018 17:20:40.16 Created new window in existing browser session.
+Oct 07, 2018 17:30:13.23 Created new window in existing browser session.
+Oct 07, 2018 17:31:39.79 Created new window in existing browser session.
+Oct 07, 2018 17:45:42.59 Created new window in existing browser session.
+Oct 07, 2018 17:46:15.61 Created new window in existing browser session.

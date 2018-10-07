@@ -1,0 +1,237 @@
+package com.bridgeit.tradefinance.trade.service;
+
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
+
+import org.hyperledger.fabric.sdk.BlockEvent.TransactionEvent;
+import org.hyperledger.fabric.sdk.ChaincodeID;
+import org.hyperledger.fabric.sdk.ChaincodeResponse.Status;
+import org.hyperledger.fabric.sdk.Channel;
+import org.hyperledger.fabric.sdk.Enrollment;
+import org.hyperledger.fabric.sdk.HFClient;
+import org.hyperledger.fabric.sdk.Orderer;
+import org.hyperledger.fabric.sdk.Peer;
+import org.hyperledger.fabric.sdk.ProposalResponse;
+import org.hyperledger.fabric.sdk.QueryByChaincodeRequest;
+import org.hyperledger.fabric.sdk.TransactionProposalRequest;
+import org.hyperledger.fabric.sdk.exception.InvalidArgumentException;
+import org.hyperledger.fabric.sdk.exception.ProposalException;
+import org.hyperledger.fabric.sdk.security.CryptoSuite;
+import org.hyperledger.fabric_ca.sdk.HFCAClient;
+import org.hyperledger.fabric_ca.sdk.RegistrationRequest;
+import org.hyperledger.fabric_ca.sdk.exception.EnrollmentException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.bridgeit.tradefinance.trade.model.AppUser;
+
+//import static java.nio.charset.StandardCharsets.UTF_8;
+
+@Service
+public class HfcaServiceImpl implements IHfcaService {
+
+//	@Autowired
+	HFCAClient hfcaclient;
+
+	private Channel channel;
+	private HFClient client;
+	private AppUser admin;
+
+	public HfcaServiceImpl() throws EnrollmentException, InvalidArgumentException, Exception  {
+		this.hfcaclient = getHFCAClient();
+		this.admin = getAdmin(hfcaclient);
+//		getUser(admin);
+		this.client = getHfClient(admin);
+		this.channel = getChannel(client);
+//		System.out.println(hfcaclient);
+
+	}
+	public HFCAClient getHFCAClient() throws Exception {
+		CryptoSuite cryptoSuite = CryptoSuite.Factory.getCryptoSuite();
+		HFCAClient caClient = HFCAClient.createNewInstance("http://localhost:7054", null);
+		caClient.setCryptoSuite(cryptoSuite);
+		return caClient;
+	}
+	public AppUser getAdmin(HFCAClient hfcaclient) throws EnrollmentException, InvalidArgumentException, Exception {
+//		System.out.println("Admin");
+		AppUser admin = tryDeserialize("admin");
+//		System.out.println("Admin"+admin);
+
+		if (admin == null) {
+//			System.out.println("admin null");
+//			System.out.println(hfcaclient);
+			Enrollment adminEnrollment = hfcaclient.enroll("admin", "adminpw");
+			System.out.println("Its enroll");
+			admin = new AppUser("admin", "importer", "ImporterMSP", adminEnrollment);
+			System.out.println("Its enroll"+ admin);
+			serialize(admin);
+		}
+		return admin;
+	}
+
+	public AppUser getUser(AppUser admin) throws Exception {
+		AppUser appUser = tryDeserialize("hfuser2");
+		if (appUser == null) {
+			RegistrationRequest rr = new RegistrationRequest("hfuser2", "org1");
+			String enrollmentSecret = hfcaclient.register(rr, admin);
+			Enrollment enrollment = hfcaclient.enroll("hfuser2", enrollmentSecret);
+			appUser = new AppUser("hfuser2", "importer", "ImporterMSP", enrollment);
+			serialize(appUser);
+		}
+		return appUser;
+	}
+
+	public HFClient getHfClient(AppUser admin) throws EnrollmentException, InvalidArgumentException, Exception {
+		// initialize default cryptosuite
+		CryptoSuite cryptoSuite = CryptoSuite.Factory.getCryptoSuite();
+		// setup the client
+		HFClient client = HFClient.createNewInstance();
+		client.setCryptoSuite(cryptoSuite);
+		client.setUserContext(admin);
+
+		return client;
+
+	}
+
+	public Channel getChannel(HFClient client) throws EnrollmentException, Exception {
+		// initialize channel
+		// peer name and endpoint in fabcar network
+		Peer peer = client.newPeer("peer0.importer.bridgeit.com", "grpc://localhost:7051");
+
+		// orderer name and endpoint in fabcar network
+		Orderer orderer = client.newOrderer("orderer.bridgeit.com", "grpc://localhost:7050");
+		// channel name in fabcar network
+		Channel channel = client.newChannel("mychannel");
+
+		channel.addPeer(peer);
+		channel.addOrderer(orderer);
+		channel.initialize();
+		return channel;
+	}
+
+	@Override
+	public void queryBlockChain(String function, String args[])
+			throws ProposalException, InvalidArgumentException {
+		// get channel instance from client
+		 Channel channel = client.getChannel("mychannel");
+
+		// create chaincode request
+		QueryByChaincodeRequest qpr = client.newQueryProposalRequest();
+		// build cc id providing the chaincode name. Version is omitted here.
+		ChaincodeID tfCCId = ChaincodeID.newBuilder().setName("tradefinance_chaincode").build();
+		qpr.setChaincodeID(tfCCId);
+		// CC function to be called
+		qpr.setFcn(function);
+		qpr.setArgs(args);
+		Collection<ProposalResponse> res = channel.queryByChaincode(qpr);
+		// display response
+		for (ProposalResponse pres : res) {
+			System.out.println("response from query" + pres.getProposalResponse().getPayload());
+			String stringResponse = new String(pres.getChaincodeActionResponsePayload());
+			System.out.println("get response " + stringResponse);
+		}
+	}
+
+	@Override
+	public boolean invokeBlockChain(String function, String args[])
+			throws ProposalException, InvalidArgumentException, InterruptedException, ExecutionException,
+			TimeoutException {
+
+		System.out.println(args[0]+" "+ args[1]);
+		System.out.println(args[2]+" "+ args[3]);
+		System.out.println(args[4]+" "+ args[5]);
+		System.out.println(args[6]+" "+ args[7]);
+		System.out.println(args[8]+" "+ args[9]);
+		System.out.println(args[10]+" "+ args[11]);
+		System.out.println(args[12]+" "+ args[13]);
+		System.out.println(args[14]);
+
+		 Channel channel = client.getChannel("mychannel");
+
+		// build cc id providing the chaincode name. Version is omitted here.
+		ChaincodeID tfCCId = ChaincodeID.newBuilder().setName("tradefinance_chaincode").build();
+
+		TransactionProposalRequest transactionProposalRequest = client.newTransactionProposalRequest();
+		transactionProposalRequest.setChaincodeID(tfCCId);
+
+		// CC function to be called
+		transactionProposalRequest.setFcn(function);
+		transactionProposalRequest.setArgs(args);
+
+		// Map<String, byte[]> tm2 = new HashMap<>();
+		// tm2.put("HyperLedgerFabric",
+		// "TransactionProposalRequest:JavaSDK".getBytes(UTF_8)); //Just some extra junk
+		// in transient map
+		// tm2.put("method", "TransactionProposalRequest".getBytes(UTF_8)); // ditto
+		// tm2.put("result", ":)".getBytes(UTF_8)); // This should be returned see
+		// chaincode why.
+
+		// transactionProposalRequest.setTransientMap(tm2);
+
+		System.out.println(channel);
+		System.out.println(transactionProposalRequest);
+		Collection<ProposalResponse> invokePropResp = channel.sendTransactionProposal(transactionProposalRequest);
+		for (ProposalResponse proposalResponse : invokePropResp) {
+			if (proposalResponse.getStatus() == Status.SUCCESS) {
+				System.out.printf("Successful transaction proposal response Txid: %s from peer %s",
+						proposalResponse.getTransactionID(), proposalResponse.getPeer().getName());
+			}
+			System.out.println(proposalResponse);
+		}
+		TransactionEvent transactionEvent = channel.sendTransaction(invokePropResp).get(10, TimeUnit.SECONDS);
+		System.out.println(transactionEvent.getTransactionID());
+		return true;
+	}
+
+	// user serialization and deserialization utility functions
+	// files are stored in the base directory
+
+	/**
+	 * Serialize AppUser object to file
+	 *
+	 * @param appUser
+	 *            The object to be serialized
+	 * @throws IOException
+	 */
+	static void serialize(AppUser appUser) throws IOException {
+		try (ObjectOutputStream oos = new ObjectOutputStream(
+				Files.newOutputStream(Paths.get(appUser.getName() + ".jso")))) {
+			oos.writeObject(appUser);
+		}
+	}
+
+	/**
+	 * Deserialize AppUser object from file
+	 *
+	 * @param name
+	 *            The name of the user. Used to build file name ${name}.jso
+	 * @return
+	 * @throws Exception
+	 */
+	static AppUser tryDeserialize(String name) throws Exception {
+		if (Files.exists(Paths.get(name + ".jso"))) {
+			return deserialize(name);
+		}
+		return null;
+	}
+
+	static AppUser deserialize(String name) throws Exception {
+		try (ObjectInputStream decoder = new ObjectInputStream(Files.newInputStream(Paths.get(name + ".jso")))) {
+			return (AppUser) decoder.readObject();
+		}
+	}
+	
+	public static void main(String[] args) throws EnrollmentException, InvalidArgumentException, Exception {
+		HfcaServiceImpl service = new HfcaServiceImpl();
+		System.out.println(service.hfcaclient);
+	}
+}

@@ -1,0 +1,5 @@
+package com.bridgeit.tradefinance.trade.model;
+
+public class AdminUser {
+
+}

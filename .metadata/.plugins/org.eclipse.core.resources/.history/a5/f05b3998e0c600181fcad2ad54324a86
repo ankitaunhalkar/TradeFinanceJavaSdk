@@ -1,0 +1,5 @@
+package com.bridgeit.tradefinance.user.model;
+
+public class RegisterDto {
+
+}

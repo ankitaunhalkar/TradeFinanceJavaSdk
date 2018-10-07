@@ -1,0 +1,211 @@
+package com.bridgeit.tradefinance.trade.model;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import com.bridgeit.tradefinance.user.model.User;
+
+@Entity
+@Table(name = "contract")
+public class Contract {
+
+	@Id
+	private String contract_id;
+
+	@Column
+	private String contract_Description;
+
+	@Column
+	private double contract_amount;
+
+	@Column
+	private String contract_importer;
+
+	@Column
+	private String contract_exporter;
+
+	@Column
+	private String contract_importerbank;
+
+	@Column
+	private String contract_insurance;
+
+	@Column
+	private String contract_custom;
+
+	@Column
+	private String contract_loadingport;
+
+	@Column
+	private String contract_entryport;
+
+	@Column
+	private boolean contract_importerbankstatus;
+
+	@Column
+	private boolean contract_insurancestatus;
+
+	@Column
+	private boolean contract_customstatus;
+
+	@Column
+	private String billofLading;
+
+	@Column
+	private String letterofCredit;
+
+	@ManyToOne(cascade = CascadeType.ALL)
+	private User user;
+
+	public Contract() {
+
+	}
+
+	public Contract(CreateContractDto contract) {
+		this.contract_id = contract.getContract_id();
+		this.contract_Description = contract.getContract_Description();
+		this.contract_amount = contract.getContract_amount();
+		this.contract_importer = contract.getContract_importer();
+		this.contract_exporter = contract.getContract_exporter();
+		this.contract_importerbank = contract.getContract_importerbank();
+		this.contract_insurance = contract.getContract_insurance();
+		this.contract_custom = contract.getContract_custom();
+		this.contract_loadingport = contract.getContract_loadingport();
+		this.contract_entryport = contract.getContract_entryport();
+		this.billofLading = contract.getBillofLading();
+		this.letterofCredit = contract.getLetterofCredit();
+	}
+
+	public String getContract_id() {
+		return contract_id;
+	}
+
+	public void setContract_id(String contract_id) {
+		this.contract_id = contract_id;
+	}
+
+	public String getContract_Description() {
+		return contract_Description;
+	}
+
+	public void setContract_Description(String contract_Description) {
+		this.contract_Description = contract_Description;
+	}
+
+	public double getContract_amount() {
+		return contract_amount;
+	}
+
+	public void setContract_amount(double contract_amount) {
+		this.contract_amount = contract_amount;
+	}
+
+	public String getContract_importer() {
+		return contract_importer;
+	}
+
+	public void setContract_importer(String contract_importer) {
+		this.contract_importer = contract_importer;
+	}
+
+	public String getContract_exporter() {
+		return contract_exporter;
+	}
+
+	public void setContract_exporter(String contract_exporter) {
+		this.contract_exporter = contract_exporter;
+	}
+
+	public String getContract_importerbank() {
+		return contract_importerbank;
+	}
+
+	public void setContract_importerbank(String contract_importerbank) {
+		this.contract_importerbank = contract_importerbank;
+	}
+
+	public String getContract_insurance() {
+		return contract_insurance;
+	}
+
+	public void setContract_insurance(String contract_insurance) {
+		this.contract_insurance = contract_insurance;
+	}
+
+	public String getContract_custom() {
+		return contract_custom;
+	}
+
+	public void setContract_custom(String contract_custom) {
+		this.contract_custom = contract_custom;
+	}
+
+	public String getContract_loadingport() {
+		return contract_loadingport;
+	}
+
+	public void setContract_loadingport(String contract_loadingport) {
+		this.contract_loadingport = contract_loadingport;
+	}
+
+	public String getContract_entryport() {
+		return contract_entryport;
+	}
+
+	public void setContract_entryport(String contract_entryport) {
+		this.contract_entryport = contract_entryport;
+	}
+
+	public boolean isContract_importerbankstatus() {
+		return contract_importerbankstatus;
+	}
+
+	public void setContract_importerbankstatus(boolean contract_importerbankstatus) {
+		this.contract_importerbankstatus = contract_importerbankstatus;
+	}
+
+	public boolean isContract_insurancestatus() {
+		return contract_insurancestatus;
+	}
+
+	public void setContract_insurancestatus(boolean contract_insurancestatus) {
+		this.contract_insurancestatus = contract_insurancestatus;
+	}
+
+	public boolean isContract_customstatus() {
+		return contract_customstatus;
+	}
+
+	public void setContract_customstatus(boolean contract_customstatus) {
+		this.contract_customstatus = contract_customstatus;
+	}
+
+	public String getBillofLading() {
+		return billofLading;
+	}
+
+	public void setBillofLading(String billofLading) {
+		this.billofLading = billofLading;
+	}
+
+	public String getLetterofCredit() {
+		return letterofCredit;
+	}
+
+	public void setLetterofCredit(String letterofCredit) {
+		this.letterofCredit = letterofCredit;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+}

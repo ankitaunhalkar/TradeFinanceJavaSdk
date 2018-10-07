@@ -1,0 +1,19 @@
+# MySQL properties
+db.driver=com.mysql.jdbc.Driver
+db.url=jdbc:mysql://localhost:3306/fundoonotes
+db.username=root
+db.password=bridgeit
+
+# Hibernate properties
+hibernate.dialect=org.hibernate.dialect.MySQL5Dialect
+hibernate.show_sql=true
+hibernate.hbm2ddl.auto=update
+
+# Mailing properties
+mail.host=smtp.gmail.com
+mail.port=587
+mail.username=fundoonotes.bridgelabz@gmail.com
+mail.password=${ankitaemailpassword}
+mail.transport.protocol=smtp
+mail.smtp.auth=true
+mail.smtp.starttls.enable=true
