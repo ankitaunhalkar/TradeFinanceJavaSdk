@@ -66,9 +66,10 @@ public class UserController {
 			ResponseDto res = new ResponseDto();
 			res.setMessage("User registration successfully! Verify your Email Id and Activate your account");
 			res.setCode(200);
+			System.out.println("success");
 			return new ResponseEntity<>(res, HttpStatus.OK);
-
 		}
+		System.out.println("Failure");
 
 		return new ResponseEntity<String>("User registration unsuccessfully", HttpStatus.CONFLICT);
 	}

@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="javax.persistence.CascadeType"/>
-<fullyQualifiedTypeName name="com.bridgeit.tradefinance.trade.dao.ITradeDao"/>
-<fullyQualifiedTypeName name="com.bridgeit.tradefinance.util.TokenUtil"/>
-<fullyQualifiedTypeName name="com.bridgeit.tradefinance.user.dao.IUserDao"/>
-<fullyQualifiedTypeName name="com.bridgeit.tradefinance.trade.model.CreateContractDto"/>
-<fullyQualifiedTypeName name="com.bridgeit.tradefinance.trade.model.Contract"/>
 <fullyQualifiedTypeName name="com.bridgeit.tradefinance.Exception.UserNotFoundException"/>
 <fullyQualifiedTypeName name="com.bridgeit.tradefinance.trade.model.ResponseContractDto"/>
 <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
@@ -60,4 +54,10 @@
 <fullyQualifiedTypeName name="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
 <fullyQualifiedTypeName name="org.springframework.web.servlet.config.annotation.WebMvcConfigurer"/>
 <fullyQualifiedTypeName name="org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry"/>
+<fullyQualifiedTypeName name="java.lang.Object"/>
+<fullyQualifiedTypeName name="org.junit.Test"/>
+<fullyQualifiedTypeName name="org.springframework.test.web.servlet.MvcResult"/>
+<fullyQualifiedTypeName name="com.bridgeit.tradefinance.trade.model.CreateContractDto"/>
+<fullyQualifiedTypeName name="org.springframework.http.MediaType"/>
+<fullyQualifiedTypeName name="com.fasterxml.jackson.databind.ObjectMapper"/>
 </qualifiedTypeNameHistroy>

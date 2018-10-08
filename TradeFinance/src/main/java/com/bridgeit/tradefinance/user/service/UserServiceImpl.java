@@ -64,15 +64,18 @@ public class UserServiceImpl implements IUserService {
 		// password encrypting
 		user.setPassword(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt()));
 
-			// if not existing then save
-			registeredId = userDao.save(user);
-			User user1 = userDao.getById(registeredId);
-			invokeChaincode(user1);
-
+		// if not existing then save
+		registeredId = userDao.save(user);
+		User user1 = userDao.getById(registeredId);
+		boolean bcstatus = invokeChaincode(user1);
+		System.out.println(bcstatus);
+		if (bcstatus) {
+			System.out.println("token generate");
 			// token generating
 			String token = TokenUtil.createJWT(String.valueOf(registeredId), registrationUser.getOrg_name(),
 					"Verification", 24 * 3600 * 1000);
 
+			System.out.println(token);
 			// setting to email model
 			Mail mail = new Mail();
 
@@ -84,22 +87,24 @@ public class UserServiceImpl implements IUserService {
 			// mail sending
 			mailProducer.sendMail(mail);
 
+			System.out.println(mail);
 			// setting into redis cache
 			tokenDao.setToken(String.valueOf(registeredId), token);
-		
+		}
+		System.out.println(registeredId);
 		return registeredId;
 	}
 
 	public boolean invokeChaincode(User user) throws EnrollmentException, InvalidArgumentException, Exception {
-		
-		String[] args = { user.getOrg_name(), user.getId()+"", "10000", user.getBankname() };
+
+		String[] args = { user.getOrg_name(), user.getId() + "", "10000", user.getBankname() };
 
 		boolean status = hfservice.invokeBlockChain("createAccount", args);
 
-		String[] args1 = { user.getId()+""};
-		
-		hfservice.queryBlockChain( "getBalance", args1);
-		
+		String[] args1 = { user.getId() + "" };
+
+		hfservice.queryBlockChain("getBalance", args1);
+		System.out.println(status);
 		return status;
 	}
 

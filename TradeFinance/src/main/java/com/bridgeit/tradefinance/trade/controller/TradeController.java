@@ -34,7 +34,10 @@ public class TradeController {
 		String token = request.getHeader("Authorization");
 		ResponseContractDto response = tradeService.createcontract(contract, token);
 		if (response != null) {
-			return new ResponseEntity<>(response, HttpStatus.CREATED);
+			ResponseDto res = new ResponseDto();
+			res.setCode(200);
+			res.setMessage("Created successfully");
+			return new ResponseEntity<>(res, HttpStatus.CREATED);
 		}
 		return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
 	}
