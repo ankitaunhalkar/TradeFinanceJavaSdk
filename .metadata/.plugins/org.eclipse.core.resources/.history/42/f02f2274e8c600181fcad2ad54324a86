@@ -1,5 +1,0 @@
-package com.bridgeit.tradefinance.Exception;
-
-public class DuplicateEmailException {
-
-}

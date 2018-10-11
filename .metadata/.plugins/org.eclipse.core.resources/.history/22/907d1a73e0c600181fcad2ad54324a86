@@ -1,5 +1,0 @@
-package com.bridgeit.tradefinance.user.service;
-
-public interface IUserService {
-
-}

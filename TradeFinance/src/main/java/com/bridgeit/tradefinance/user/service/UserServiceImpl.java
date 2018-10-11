@@ -7,6 +7,8 @@ import javax.transaction.Transactional;
 import org.hyperledger.fabric.sdk.exception.InvalidArgumentException;
 import org.hyperledger.fabric_ca.sdk.exception.EnrollmentException;
 import org.mindrot.jbcrypt.BCrypt;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessagePreparator;
@@ -42,6 +44,8 @@ public class UserServiceImpl implements IUserService {
 	@Autowired
 	IHfcaService hfservice;
 
+	private static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class.getName());
+
 	@Override
 	@Transactional
 	public long register(RegisterDto registrationUser, String url)
@@ -67,10 +71,15 @@ public class UserServiceImpl implements IUserService {
 		// if not existing then save
 		registeredId = userDao.save(user);
 		User user1 = userDao.getById(registeredId);
+		logger.info("Invoking chaincode to create account.");
 		boolean bcstatus = invokeChaincode(user1);
-		System.out.println(bcstatus);
 		if (bcstatus) {
-			System.out.println("token generate");
+			logger.info("==========================Success===============================");
+			logger.info("Account created successfully in blockchain and saved in datbase.");
+			logger.info("================================================================");
+			logger.info("");
+			logger.info("");
+
 			// token generating
 			String token = TokenUtil.createJWT(String.valueOf(registeredId), registrationUser.getOrg_name(),
 					"Verification", 24 * 3600 * 1000);
@@ -102,9 +111,14 @@ public class UserServiceImpl implements IUserService {
 		boolean status = hfservice.invokeBlockChain("createAccount", args);
 
 		String[] args1 = { user.getId() + "" };
-
+		logger.info("=========================Checking Account Balance===========================");
 		hfservice.queryBlockChain("getBalance", args1);
-		System.out.println(status);
+		logger.info("=============================================================================");
+		logger.info("");
+		logger.info("");
+
+
+//		System.out.println(status);
 		return status;
 	}
 

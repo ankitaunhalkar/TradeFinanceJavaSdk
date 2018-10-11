@@ -1,8 +1,0 @@
-package com.bridgeit.tradefinance.util;
-
-public class ResponseDto {
-
-	private String message;
-	
-	private int code;
-}

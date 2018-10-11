@@ -27,6 +27,8 @@ import org.hyperledger.fabric.sdk.security.CryptoSuite;
 import org.hyperledger.fabric_ca.sdk.HFCAClient;
 import org.hyperledger.fabric_ca.sdk.RegistrationRequest;
 import org.hyperledger.fabric_ca.sdk.exception.EnrollmentException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.bridgeit.tradefinance.trade.model.AppUser;
@@ -35,6 +37,8 @@ import com.bridgeit.tradefinance.trade.model.AppUser;
 
 @Service
 public class HfcaServiceImpl implements IHfcaService {
+
+	private static final Logger logger = LoggerFactory.getLogger(HfcaServiceImpl.class.getName());
 
 	// @Autowired
 	HFCAClient hfcaclient;
@@ -67,11 +71,11 @@ public class HfcaServiceImpl implements IHfcaService {
 
 		if (admin == null) {
 			// System.out.println("admin null");
-			System.out.println(hfcaclient);
+			// System.out.println(hfcaclient);
 			Enrollment adminEnrollment = hfcaclient.enroll("admin", "adminpw");
-			System.out.println("Its enroll");
+			// System.out.println("Its enroll");
 			admin = new AppUser("admin", "importer", "ImporterMSP", adminEnrollment);
-			System.out.println("Its enroll" + admin);
+			// System.out.println("Its enroll" + admin);
 			serialize(admin);
 		}
 		return admin;
@@ -132,23 +136,32 @@ public class HfcaServiceImpl implements IHfcaService {
 		qpr.setArgs(args);
 		Collection<ProposalResponse> res = channel.queryByChaincode(qpr);
 		// display response
-		for (ProposalResponse pres : res) {
-			System.out.println("response from query" + pres.getProposalResponse().getPayload());
-			String stringResponse = new String(pres.getChaincodeActionResponsePayload());
-			System.out.println("get response " + stringResponse);
+		if (res != null) {
+			for (ProposalResponse pres : res) {
+				// System.out.println("response from query" +
+				// pres.getProposalResponse().getPayload());
+				logger.info("=======================Success=========================");
+				String stringResponse = new String(pres.getChaincodeActionResponsePayload());
+//				System.out.println("get response " + stringResponse);
+				logger.info("Found query response");
+				logger.info("Response:\n "+stringResponse);
+			}
+		} else {
+			logger.info("=======================Failed=========================");
+			logger.info("No response found");
 		}
+
 	}
 
 	@Override
 	public boolean invokeBlockChain(String function, String args[]) throws ProposalException, InvalidArgumentException,
 			InterruptedException, ExecutionException, TimeoutException {
 
-
 		Channel channel = client.getChannel("mychannel");
 
 		// build cc id providing the chaincode name. Version is omitted here.
 		ChaincodeID tfCCId = ChaincodeID.newBuilder().setName("tradefinance_chaincode").build();
-		System.out.println(tfCCId);
+		// System.out.println(tfCCId);
 		TransactionProposalRequest transactionProposalRequest = client.newTransactionProposalRequest();
 		transactionProposalRequest.setChaincodeID(tfCCId);
 
@@ -156,21 +169,32 @@ public class HfcaServiceImpl implements IHfcaService {
 		transactionProposalRequest.setFcn(function);
 		transactionProposalRequest.setArgs(args);
 
-		System.out.println(channel.toString());
-		System.out.println(transactionProposalRequest.toString());
+		// System.out.println(channel.toString());
+		// System.out.println(transactionProposalRequest.toString());
+		logger.info("Sendng transcation proposal request to peer");
 		Collection<ProposalResponse> invokePropResp = channel.sendTransactionProposal(transactionProposalRequest);
 		for (ProposalResponse proposalResponse : invokePropResp) {
 			if (proposalResponse.getStatus() == Status.SUCCESS) {
-				System.out.printf("Successful transaction proposal response Txid: %s from peer %s",
+				logger.info("=======================Success=========================");
+				logger.info("Successful transaction proposal response Txid: %s from peer %s",
 						proposalResponse.getTransactionID(), proposalResponse.getPeer().getName());
-			} else
+			} else {
+				logger.info("=======================Failure=========================");
+				logger.info("Transaction proposal response Failed for Txid: %s from peer %s",
+						proposalResponse.getTransactionID(), proposalResponse.getPeer().getName());
 				return false;
+			}
 		}
+		logger.info("Sending Transaction to orderers");
 		TransactionEvent transactionEvent = channel.sendTransaction(invokePropResp).get(15, TimeUnit.SECONDS);
-		System.out.println(transactionEvent.getTransactionID());
+		// System.out.println(transactionEvent.getTransactionID());
 		if (transactionEvent.getTransactionID() == null) {
+			logger.info("=======================Failure=========================");
+			logger.info("Transaction failed! Cannot save to blockchain");
 			return false;
 		}
+		logger.info("=======================Success=========================");
+		logger.info("Transaction sent succefully and saved into blockchain");
 		return true;
 	}
 

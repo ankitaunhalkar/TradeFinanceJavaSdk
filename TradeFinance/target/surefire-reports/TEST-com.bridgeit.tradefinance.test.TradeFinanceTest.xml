@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="2" failures="0" name="com.bridgeit.tradefinance.test.TradeFinanceTest" time="15.284" errors="0" skipped="0">
+<testsuite tests="2" failures="1" name="com.bridgeit.tradefinance.test.TradeFinanceTest" time="13.045" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64"/>
@@ -25,7 +25,7 @@
 "/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="os.name" value="Linux"/>
-    <property name="classworlds.conf" value="/home/bridgeit/eclipse-workspace/tradefinance/.metadata/.plugins/org.eclipse.m2e.launching/launches/m2conf202530843479874571.tmp"/>
+    <property name="classworlds.conf" value="/home/bridgeit/eclipse-workspace/tradefinance/.metadata/.plugins/org.eclipse.m2e.launching/launches/m2conf4062599597546556793.tmp"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
     <property name="java.library.path" value="/usr/java/packages/lib/amd64:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
@@ -60,6 +60,256 @@
     <property name="sun.desktop" value="gnome"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="com.bridgeit.tradefinance.test.TradeFinanceTest" name="testLogin" time="0.53"/>
-  <testcase classname="com.bridgeit.tradefinance.test.TradeFinanceTest" name="testContract" time="14.754"/>
+  <testcase classname="com.bridgeit.tradefinance.test.TradeFinanceTest" name="testLogin" time="0.922"/>
+  <testcase classname="com.bridgeit.tradefinance.test.TradeFinanceTest" name="testContract" time="12.123">
+    <failure message="Range for response status value 406 expected:&lt;SUCCESSFUL&gt; but was:&lt;CLIENT_ERROR&gt;" type="java.lang.AssertionError">java.lang.AssertionError: Range for response status value 406 expected:&lt;SUCCESSFUL&gt; but was:&lt;CLIENT_ERROR&gt;
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:55)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:82)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers.lambda$is2xxSuccessful$3(StatusResultMatchers.java:78)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:195)
+	at com.bridgeit.tradefinance.test.TradeFinanceTest.testContract(TradeFinanceTest.java:100)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestExecutionCallbacks.evaluate(RunBeforeTestExecutionCallbacks.java:74)
+	at org.springframework.test.context.junit4.statements.RunAfterTestExecutionCallbacks.evaluate(RunAfterTestExecutionCallbacks.java:84)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:251)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+</failure>
+    <system-out>INFO : org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet &apos;&apos;
+INFO : org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet &apos;&apos;: initialization started
+INFO : org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet &apos;&apos;: initialization completed in 1 ms
+contracteyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxIiwiaWF0IjoxNTM5MDc3NTMyLCJzdWIiOiJMb2dpbiIsImlzcyI6ImltcG9ydGVyIiwiZXhwIjoxNTM5MTYzOTMyfQ.EXN_GNcRQ8GVwnYRqRjfMeLK__k-N-IcjBEZ7NzKTZo
+{jti=1, iat=1539077532, sub=Login, iss=importer, exp=1539163932}
+WARN : org.hibernate.orm.deprecation - HHH90000022: Hibernate&apos;s legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+Hibernate: select this_.id as id1_1_0_, this_.bankname as bankname2_1_0_, this_.email as email3_1_0_, this_.isVerified as isVerifi4_1_0_, this_.org_name as org_name5_1_0_, this_.password as password6_1_0_, this_.phoneno as phoneno7_1_0_, this_.role as role8_1_0_ from user this_ where this_.id=?
+INFO : com.bridgeit.tradefinance.trade.service.TradeServiceImpl - Invoking chaincode to create contract
+INFO : com.bridgeit.tradefinance.trade.service.HfcaServiceImpl - Sendng transcation proposal request to peer
+INFO : com.bridgeit.tradefinance.trade.service.HfcaServiceImpl - =======================Success=========================
+INFO : com.bridgeit.tradefinance.trade.service.HfcaServiceImpl - Successful transaction proposal response Txid: %s from peer %s
+INFO : com.bridgeit.tradefinance.trade.service.HfcaServiceImpl - Sending Transaction to orderers
+INFO : com.bridgeit.tradefinance.trade.service.HfcaServiceImpl - =======================Success=========================
+INFO : com.bridgeit.tradefinance.trade.service.HfcaServiceImpl - Transaction sent succefully and saved into blockchain
+INFO : com.bridgeit.tradefinance.trade.service.TradeServiceImpl - =========================Contract Saved in blockchain========================
+INFO : com.bridgeit.tradefinance.trade.service.TradeServiceImpl - Contract Id:111
+INFO : com.bridgeit.tradefinance.trade.service.HfcaServiceImpl - =======================Success=========================
+INFO : com.bridgeit.tradefinance.trade.service.HfcaServiceImpl - Found query response
+INFO : com.bridgeit.tradefinance.trade.service.HfcaServiceImpl - Response:
+ {&quot;contract_id&quot;:&quot;111&quot;,&quot;contract_description&quot;:&quot;100 flowers&quot;,&quot;contract_amount&quot;:20000,&quot;contract_importer&quot;:&quot;1&quot;,&quot;contract_exporter&quot;:&quot;2&quot;,&quot;contract_importerbank&quot;:&quot;3&quot;,&quot;contract_insurance&quot;:&quot;4&quot;,&quot;contract_custom&quot;:&quot;5&quot;,&quot;contract_loadingport&quot;:&quot;mumbai&quot;,&quot;contract_entryport&quot;:&quot;goa&quot;,&quot;contract_importerbankstatus&quot;:false,&quot;contract_insurancestatus&quot;:false,&quot;contract_customstatus&quot;:false,&quot;billofLading&quot;:&quot;http://localhost:8080/tradefinance/getfile/bol.pdf&quot;,&quot;letterofCredit&quot;:&quot;http://localhost:8080/tradefinance/getfile/loc.pdf&quot;}
+INFO : com.bridgeit.tradefinance.trade.service.TradeServiceImpl - =============================================================================
+INFO : com.bridgeit.tradefinance.trade.service.TradeServiceImpl - 
+INFO : com.bridgeit.tradefinance.trade.service.TradeServiceImpl - 
+111
+INFO : com.bridgeit.tradefinance.trade.service.TradeServiceImpl - ==========================Success===============================
+INFO : com.bridgeit.tradefinance.trade.service.TradeServiceImpl - Contract created successfully in blockchain and saved in datbase.
+INFO : com.bridgeit.tradefinance.trade.service.TradeServiceImpl - ================================================================
+WARN : org.hibernate.orm.deprecation - HHH90000022: Hibernate&apos;s legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+Hibernate: insert into contract (billofLading, contract_Description, contract_amount, contract_custom, contract_customstatus, contract_entryport, contract_exporter, contract_importer, contract_importerbank, contract_importerbankstatus, contract_insurance, contract_insurancestatus, contract_loadingport, letterofCredit, user_id, contract_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: select this_.contract_id as contract1_0_1_, this_.billofLading as billofLa2_0_1_, this_.contract_Description as contract3_0_1_, this_.contract_amount as contract4_0_1_, this_.contract_custom as contract5_0_1_, this_.contract_customstatus as contract6_0_1_, this_.contract_entryport as contract7_0_1_, this_.contract_exporter as contract8_0_1_, this_.contract_importer as contract9_0_1_, this_.contract_importerbank as contrac10_0_1_, this_.contract_importerbankstatus as contrac11_0_1_, this_.contract_insurance as contrac12_0_1_, this_.contract_insurancestatus as contrac13_0_1_, this_.contract_loadingport as contrac14_0_1_, this_.letterofCredit as lettero15_0_1_, this_.user_id as user_id16_0_1_, user2_.id as id1_1_0_, user2_.bankname as bankname2_1_0_, user2_.email as email3_1_0_, user2_.isVerified as isVerifi4_1_0_, user2_.org_name as org_name5_1_0_, user2_.password as password6_1_0_, user2_.phoneno as phoneno7_1_0_, user2_.role as role8_1_0_ from contract this_ left outer join user user2_ on this_.user_id=user2_.id where this_.contract_id=?
+INFO : com.bridgeit.tradefinance.trade.service.TradeServiceImpl - Invoking Custom Acceptance to check loading port and entry port
+INFO : com.bridgeit.tradefinance.trade.service.HfcaServiceImpl - Sendng transcation proposal request to peer
+INFO : com.bridgeit.tradefinance.trade.service.HfcaServiceImpl - =======================Success=========================
+INFO : com.bridgeit.tradefinance.trade.service.HfcaServiceImpl - Successful transaction proposal response Txid: %s from peer %s
+INFO : com.bridgeit.tradefinance.trade.service.HfcaServiceImpl - Sending Transaction to orderers
+INFO : com.bridgeit.tradefinance.trade.service.HfcaServiceImpl - =======================Success=========================
+INFO : com.bridgeit.tradefinance.trade.service.HfcaServiceImpl - Transaction sent succefully and saved into blockchain
+INFO : com.bridgeit.tradefinance.trade.service.TradeServiceImpl - =========================Custom Approved========================
+INFO : com.bridgeit.tradefinance.trade.service.TradeServiceImpl - Successfully approved by customs and successfully updated the custom status in db
+INFO : com.bridgeit.tradefinance.trade.service.TradeServiceImpl - ================================================================
+INFO : com.bridgeit.tradefinance.trade.service.TradeServiceImpl - 
+INFO : com.bridgeit.tradefinance.trade.service.TradeServiceImpl - 
+WARN : org.hibernate.orm.deprecation - HHH90000022: Hibernate&apos;s legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+Hibernate: update contract set billofLading=?, contract_Description=?, contract_amount=?, contract_custom=?, contract_customstatus=?, contract_entryport=?, contract_exporter=?, contract_importer=?, contract_importerbank=?, contract_importerbankstatus=?, contract_insurance=?, contract_insurancestatus=?, contract_loadingport=?, letterofCredit=?, user_id=? where contract_id=?
+Hibernate: select this_.contract_id as contract1_0_1_, this_.billofLading as billofLa2_0_1_, this_.contract_Description as contract3_0_1_, this_.contract_amount as contract4_0_1_, this_.contract_custom as contract5_0_1_, this_.contract_customstatus as contract6_0_1_, this_.contract_entryport as contract7_0_1_, this_.contract_exporter as contract8_0_1_, this_.contract_importer as contract9_0_1_, this_.contract_importerbank as contrac10_0_1_, this_.contract_importerbankstatus as contrac11_0_1_, this_.contract_insurance as contrac12_0_1_, this_.contract_insurancestatus as contrac13_0_1_, this_.contract_loadingport as contrac14_0_1_, this_.letterofCredit as lettero15_0_1_, this_.user_id as user_id16_0_1_, user2_.id as id1_1_0_, user2_.bankname as bankname2_1_0_, user2_.email as email3_1_0_, user2_.isVerified as isVerifi4_1_0_, user2_.org_name as org_name5_1_0_, user2_.password as password6_1_0_, user2_.phoneno as phoneno7_1_0_, user2_.role as role8_1_0_ from contract this_ left outer join user user2_ on this_.user_id=user2_.id where this_.contract_id=?
+INFO : com.bridgeit.tradefinance.trade.service.TradeServiceImpl - Invoking Insurance Acceptance to check letter of credit and bill of lading
+INFO : com.bridgeit.tradefinance.trade.service.HfcaServiceImpl - Sendng transcation proposal request to peer
+INFO : com.bridgeit.tradefinance.trade.service.HfcaServiceImpl - =======================Success=========================
+INFO : com.bridgeit.tradefinance.trade.service.HfcaServiceImpl - Successful transaction proposal response Txid: %s from peer %s
+INFO : com.bridgeit.tradefinance.trade.service.HfcaServiceImpl - Sending Transaction to orderers
+INFO : com.bridgeit.tradefinance.trade.service.HfcaServiceImpl - =======================Success=========================
+INFO : com.bridgeit.tradefinance.trade.service.HfcaServiceImpl - Transaction sent succefully and saved into blockchain
+INFO : com.bridgeit.tradefinance.trade.service.TradeServiceImpl - =========================Insurance Approved========================
+INFO : com.bridgeit.tradefinance.trade.service.TradeServiceImpl - Successfully approved by insurance and successfully updated the insurance status in db
+INFO : com.bridgeit.tradefinance.trade.service.TradeServiceImpl - ===================================================================
+INFO : com.bridgeit.tradefinance.trade.service.TradeServiceImpl - 
+INFO : com.bridgeit.tradefinance.trade.service.TradeServiceImpl - 
+WARN : org.hibernate.orm.deprecation - HHH90000022: Hibernate&apos;s legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+Hibernate: update contract set billofLading=?, contract_Description=?, contract_amount=?, contract_custom=?, contract_customstatus=?, contract_entryport=?, contract_exporter=?, contract_importer=?, contract_importerbank=?, contract_importerbankstatus=?, contract_insurance=?, contract_insurancestatus=?, contract_loadingport=?, letterofCredit=?, user_id=? where contract_id=?
+Hibernate: select this_.contract_id as contract1_0_1_, this_.billofLading as billofLa2_0_1_, this_.contract_Description as contract3_0_1_, this_.contract_amount as contract4_0_1_, this_.contract_custom as contract5_0_1_, this_.contract_customstatus as contract6_0_1_, this_.contract_entryport as contract7_0_1_, this_.contract_exporter as contract8_0_1_, this_.contract_importer as contract9_0_1_, this_.contract_importerbank as contrac10_0_1_, this_.contract_importerbankstatus as contrac11_0_1_, this_.contract_insurance as contrac12_0_1_, this_.contract_insurancestatus as contrac13_0_1_, this_.contract_loadingport as contrac14_0_1_, this_.letterofCredit as lettero15_0_1_, this_.user_id as user_id16_0_1_, user2_.id as id1_1_0_, user2_.bankname as bankname2_1_0_, user2_.email as email3_1_0_, user2_.isVerified as isVerifi4_1_0_, user2_.org_name as org_name5_1_0_, user2_.password as password6_1_0_, user2_.phoneno as phoneno7_1_0_, user2_.role as role8_1_0_ from contract this_ left outer join user user2_ on this_.user_id=user2_.id where this_.contract_id=?
+INFO : com.bridgeit.tradefinance.trade.service.TradeServiceImpl - Invoking Importer Bank Acceptance to check status of insurance, customs and perform transaction
+INFO : com.bridgeit.tradefinance.trade.service.HfcaServiceImpl - Sendng transcation proposal request to peer
+INFO : com.bridgeit.tradefinance.trade.service.HfcaServiceImpl - =======================Success=========================
+INFO : com.bridgeit.tradefinance.trade.service.HfcaServiceImpl - Successful transaction proposal response Txid: %s from peer %s
+INFO : com.bridgeit.tradefinance.trade.service.HfcaServiceImpl - Sending Transaction to orderers
+INFO : com.bridgeit.tradefinance.trade.service.HfcaServiceImpl - =======================Success=========================
+INFO : com.bridgeit.tradefinance.trade.service.HfcaServiceImpl - Transaction sent succefully and saved into blockchain
+INFO : com.bridgeit.tradefinance.trade.service.TradeServiceImpl - =========================Importer Bank Approved========================
+INFO : com.bridgeit.tradefinance.trade.service.TradeServiceImpl - Successfully approved by insurance and successfully updated the insurance status in db
+INFO : com.bridgeit.tradefinance.trade.service.TradeServiceImpl - ===================================================================
+INFO : com.bridgeit.tradefinance.trade.service.TradeServiceImpl - 
+INFO : com.bridgeit.tradefinance.trade.service.TradeServiceImpl - 
+WARN : org.hibernate.orm.deprecation - HHH90000022: Hibernate&apos;s legacy org.hibernate.Criteria API is deprecated; use the JPA javax.persistence.criteria.CriteriaQuery instead
+Hibernate: update contract set billofLading=?, contract_Description=?, contract_amount=?, contract_custom=?, contract_customstatus=?, contract_entryport=?, contract_exporter=?, contract_importer=?, contract_importerbank=?, contract_importerbankstatus=?, contract_insurance=?, contract_insurancestatus=?, contract_loadingport=?, letterofCredit=?, user_id=? where contract_id=?
+Hibernate: select this_.contract_id as contract1_0_1_, this_.billofLading as billofLa2_0_1_, this_.contract_Description as contract3_0_1_, this_.contract_amount as contract4_0_1_, this_.contract_custom as contract5_0_1_, this_.contract_customstatus as contract6_0_1_, this_.contract_entryport as contract7_0_1_, this_.contract_exporter as contract8_0_1_, this_.contract_importer as contract9_0_1_, this_.contract_importerbank as contrac10_0_1_, this_.contract_importerbankstatus as contrac11_0_1_, this_.contract_insurance as contrac12_0_1_, this_.contract_insurancestatus as contrac13_0_1_, this_.contract_loadingport as contrac14_0_1_, this_.letterofCredit as lettero15_0_1_, this_.user_id as user_id16_0_1_, user2_.id as id1_1_0_, user2_.bankname as bankname2_1_0_, user2_.email as email3_1_0_, user2_.isVerified as isVerifi4_1_0_, user2_.org_name as org_name5_1_0_, user2_.password as password6_1_0_, user2_.phoneno as phoneno7_1_0_, user2_.role as role8_1_0_ from contract this_ left outer join user user2_ on this_.user_id=user2_.id where this_.contract_id=?
+INFO : com.bridgeit.tradefinance.trade.service.TradeServiceImpl - Performing transaction! Transfering money from importer to exporter and custom
+INFO : com.bridgeit.tradefinance.trade.service.HfcaServiceImpl - Sendng transcation proposal request to peer
+ERROR: org.hyperledger.fabric.sdk.ProposalResponse - verify: Cannot retrieve peer identity from ProposalResponse. Error is: X.509 not found
+org.hyperledger.fabric.sdk.exception.CryptoException: X.509 not found
+	at org.hyperledger.fabric.sdk.security.CryptoPrimitives.getX509Certificate(CryptoPrimitives.java:245)
+	at org.hyperledger.fabric.sdk.security.CryptoPrimitives.verify(CryptoPrimitives.java:319)
+	at org.hyperledger.fabric.sdk.ProposalResponse.verify(ProposalResponse.java:133)
+	at org.hyperledger.fabric.sdk.Channel.sendProposalToPeers(Channel.java:3630)
+	at org.hyperledger.fabric.sdk.Channel.sendProposal(Channel.java:3515)
+	at org.hyperledger.fabric.sdk.Channel.sendTransactionProposal(Channel.java:3101)
+	at com.bridgeit.tradefinance.trade.service.HfcaServiceImpl.invokeBlockChain(HfcaServiceImpl.java:175)
+	at com.bridgeit.tradefinance.trade.service.TradeServiceImpl.invokeChaincode(TradeServiceImpl.java:238)
+	at com.bridgeit.tradefinance.trade.service.TradeServiceImpl.updateContract(TradeServiceImpl.java:128)
+	at com.bridgeit.tradefinance.trade.service.TradeServiceImpl.createcontract(TradeServiceImpl.java:68)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:343)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:197)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:294)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:98)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy69.createcontract(Unknown Source)
+	at com.bridgeit.tradefinance.trade.controller.TradeController.createContract(TradeController.java:35)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:209)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:136)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:877)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:783)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:991)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:974)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:877)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:665)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:851)
+	at org.springframework.test.web.servlet.TestDispatcherServlet.service(TestDispatcherServlet.java:71)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:750)
+	at org.springframework.mock.web.MockFilterChain$ServletFilterProxy.doFilter(MockFilterChain.java:166)
+	at org.springframework.mock.web.MockFilterChain.doFilter(MockFilterChain.java:133)
+	at org.springframework.test.web.servlet.MockMvc.perform(MockMvc.java:182)
+	at com.bridgeit.tradefinance.test.TradeFinanceTest.testContract(TradeFinanceTest.java:97)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestExecutionCallbacks.evaluate(RunBeforeTestExecutionCallbacks.java:74)
+	at org.springframework.test.context.junit4.statements.RunAfterTestExecutionCallbacks.evaluate(RunAfterTestExecutionCallbacks.java:84)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:251)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+Caused by: java.security.cert.CertificateException: X.509 not found
+	at java.security.cert.CertificateFactory.getInstance(CertificateFactory.java:276)
+	at org.hyperledger.fabric.sdk.security.CryptoPrimitives.getX509Certificate(CryptoPrimitives.java:230)
+	... 82 more
+Caused by: java.security.NoSuchAlgorithmException: no such algorithm: X.509 for provider SunPCSC
+	at sun.security.jca.GetInstance.getService(GetInstance.java:101)
+	at sun.security.jca.GetInstance.getInstance(GetInstance.java:218)
+	at java.security.cert.CertificateFactory.getInstance(CertificateFactory.java:271)
+	... 83 more
+INFO : com.bridgeit.tradefinance.trade.service.HfcaServiceImpl - =======================Failure=========================
+INFO : com.bridgeit.tradefinance.trade.service.HfcaServiceImpl - Transaction proposal response Failed for Txid: %s from peer %s
+INFO : com.bridgeit.tradefinance.trade.service.TradeServiceImpl - =========================Consensus by Importer Account========================
+INFO : com.bridgeit.tradefinance.trade.service.TradeServiceImpl - For Importer Id:1
+INFO : com.bridgeit.tradefinance.trade.service.HfcaServiceImpl - =======================Success=========================
+INFO : com.bridgeit.tradefinance.trade.service.HfcaServiceImpl - Found query response
+INFO : com.bridgeit.tradefinance.trade.service.HfcaServiceImpl - Response:
+ {&quot;account_name&quot;:&quot;importer&quot;,&quot;account_number&quot;:&quot;1&quot;,&quot;account_balance&quot;:10000,&quot;bank_name&quot;:&quot;SBI&quot;}
+INFO : com.bridgeit.tradefinance.trade.service.TradeServiceImpl - =============================================================================
+INFO : com.bridgeit.tradefinance.trade.service.TradeServiceImpl - 
+INFO : com.bridgeit.tradefinance.trade.service.TradeServiceImpl - 
+INFO : com.bridgeit.tradefinance.trade.service.TradeServiceImpl - =========================Consensus by Exporter Account========================
+INFO : com.bridgeit.tradefinance.trade.service.TradeServiceImpl - For Importer Id:2
+INFO : com.bridgeit.tradefinance.trade.service.HfcaServiceImpl - =======================Success=========================
+INFO : com.bridgeit.tradefinance.trade.service.HfcaServiceImpl - Found query response
+INFO : com.bridgeit.tradefinance.trade.service.HfcaServiceImpl - Response:
+ {&quot;account_name&quot;:&quot;exporter&quot;,&quot;account_number&quot;:&quot;2&quot;,&quot;account_balance&quot;:10000,&quot;bank_name&quot;:&quot;SBI&quot;}
+INFO : com.bridgeit.tradefinance.trade.service.TradeServiceImpl - =============================================================================
+INFO : com.bridgeit.tradefinance.trade.service.TradeServiceImpl - 
+INFO : com.bridgeit.tradefinance.trade.service.TradeServiceImpl - 
+INFO : com.bridgeit.tradefinance.trade.service.TradeServiceImpl - =========================Consensus by Custom Account========================
+INFO : com.bridgeit.tradefinance.trade.service.TradeServiceImpl - For Custom Id:5
+INFO : com.bridgeit.tradefinance.trade.service.HfcaServiceImpl - =======================Success=========================
+INFO : com.bridgeit.tradefinance.trade.service.HfcaServiceImpl - Found query response
+INFO : com.bridgeit.tradefinance.trade.service.HfcaServiceImpl - Response:
+ {&quot;account_name&quot;:&quot;custom&quot;,&quot;account_number&quot;:&quot;5&quot;,&quot;account_balance&quot;:10000,&quot;bank_name&quot;:&quot;SBI&quot;}
+INFO : com.bridgeit.tradefinance.trade.service.TradeServiceImpl - =============================================================================
+INFO : com.bridgeit.tradefinance.trade.service.TradeServiceImpl - 
+INFO : com.bridgeit.tradefinance.trade.service.TradeServiceImpl - 
+INFO : com.bridgeit.tradefinance.trade.service.TradeServiceImpl - =========================Transaction failed========================
+</system-out>
+    <system-err>Tue Oct 09 15:02:12 IST 2018 WARN: Establishing SSL connection without server&apos;s identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn&apos;t set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to &apos;false&apos;. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
+</system-err>
+  </testcase>
 </testsuite>

@@ -1,5 +1,0 @@
-package com.bridgeit.tradefinance.util;
-
-public class RedisTokendao {
-
-}

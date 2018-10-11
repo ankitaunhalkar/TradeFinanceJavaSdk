@@ -57,12 +57,12 @@ public class TradeFinanceTest {
 //				.andExpect(jsonPath("message").value("User registration successfully! Verify your Email Id and Activate your account"));
 //				
 //	}
-//	
+	
 	@Test
 	public void testLogin() throws Exception {
 		// fail("Not yet implemented");
 		LoginDto login = new LoginDto();
-		login.setEmail("ankitaunhalkar19@gmail.com");
+		login.setEmail("importer@gmail.com");
 		login.setPassword("123456");
 
 		MvcResult result = mockMvc.perform(post("/login").contentType(MediaType.APPLICATION_JSON)
@@ -72,7 +72,7 @@ public class TradeFinanceTest {
 				.andExpect(jsonPath("message").value("Logged in succesfully"))
 				.andReturn();
 		header = result.getResponse().getHeader("Authorization");
-		System.out.println(header);
+//		System.out.println(header);
 //		System.out.println("Header "+result.getResponse().getHeader("Authorization"));
 				
 	}	
@@ -83,7 +83,7 @@ public class TradeFinanceTest {
 		CreateContractDto contract = new CreateContractDto();
 		contract.setContract_id("111");
 		contract.setContract_Description("100 flowers");
-		contract.setContract_amount(2000);
+		contract.setContract_amount(20000);
 		contract.setContract_importer("1");
 		contract.setContract_exporter("2");
 		contract.setContract_importerbank("3");
